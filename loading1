@@ -1,0 +1,49 @@
+-- Loading Screen 1
+if _G.LoadingScreen ~= false then
+    local ScreenGui = Instance.new("ScreenGui")
+    local Frame = Instance.new("Frame")
+    local TextLabel = Instance.new("TextLabel")
+    local ImageLabel = Instance.new("ImageLabel")
+    local TextLabel_2 = Instance.new("TextLabel")
+
+    -- Properties:
+    ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    ScreenGui.DisplayOrder = 999999999
+
+    Frame.Parent = ScreenGui
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame.Position = UDim2.new(-1.1603854, 0, -1.10370374, 0)
+    Frame.Size = UDim2.new(0, 1000000, 0, 100000000)
+
+    TextLabel.Parent = ScreenGui
+    TextLabel.BackgroundColor3 = Color3.fromRGB(14, 18, 28)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.Position = UDim2.new(0.0111, 0.5, 0.373532414, 0)
+    TextLabel.Size = UDim2.new(0, 1100, 0, 310)
+    TextLabel.ZIndex = 3
+    TextLabel.Font = Enum.Font.FredokaOne
+    TextLabel.Text = "We're restarting Pet Simulator 99!"
+    TextLabel.TextColor3 = Color3.fromRGB(255,158,68,255)
+    TextLabel.TextSize = 70.000
+    TextLabel.TextWrapped = true
+
+    ImageLabel.Parent = ScreenGui
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(123, 234, 50)
+    ImageLabel.BackgroundTransparency = 1.000
+    ImageLabel.Position = UDim2.new(0.353251033338259, 0, 0.13342583251, 0)
+    ImageLabel.Size = UDim2.new(0, 300, 0, 260)
+    ImageLabel.ZIndex = 1
+    ImageLabel.Image = "http://www.roblox.com/asset/?id=12950470999"
+
+    TextLabel_2.Parent = ScreenGui
+    TextLabel_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    TextLabel_2.BackgroundTransparency = 1.000
+    TextLabel_2.Position = UDim2.new(0, 0, 0.468594134, 0)
+    TextLabel_2.Size = UDim2.new(0, 1145, 0, 310)
+    TextLabel_2.ZIndex = 1
+    TextLabel_2.Font = Enum.Font.FredokaOne
+    TextLabel_2.Text = "Please wait Script Loading we will redirect you"
+    TextLabel_2.TextColor3 = Color3.fromRGB(255,158,68,255)
+    TextLabel_2.TextSize = 36.000
+    TextLabel_2.TextWrapped = true
+end

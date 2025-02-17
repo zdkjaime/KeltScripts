@@ -1,0 +1,7 @@
+-- Loading Screen 4
+local LoadingScreenFunction = require(game:GetService("ReplicatedStorage").Library.Client.GUIFX.Transition)
+game.Players.LocalPlayer.PlayerGui.Transition.DisplayOrder = 6000000000000
+
+task.spawn(function()
+    LoadingScreenFunction("anything")
+end)

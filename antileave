@@ -1,0 +1,24 @@
+local CoreGui = game:GetService("CoreGui")
+local StarterGui = game:GetService("StarterGui")
+
+-- Intenta deshabilitar las interfaces del sistema
+local function disableCoreGui()
+    for _, type in ipairs(Enum.CoreGuiType:GetEnumItems()) do
+        if type ~= Enum.CoreGuiType.PlayerList then -- Opcional, evita ocultar la lista de jugadores
+            StarterGui:SetCoreGuiEnabled(type, false)
+        end
+    end
+end
+
+-- Espera a que CoreGui cargue y destruye ciertas interfaces
+local function destroySystemUI()
+    for _, child in pairs(CoreGui:GetChildren()) do
+        if child:IsA("ScreenGui") and child.Name ~= "Chat" then -- Opcional, evita eliminar el chat
+            child:Destroy()
+        end
+    end
+end
+
+-- Ejecuta las funciones
+disableCoreGui()
+destroySystemUI()

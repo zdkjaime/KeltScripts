@@ -1,0 +1,295 @@
+local LoadingScreen = true -- Asegúrate de que esta variable esté definida
+
+if LoadingScreen then
+    -- Crear la GUI
+    local Loading = Instance.new("ScreenGui")
+    Loading.Name = "DiscordLoadingScreen"
+    Loading.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    Loading.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Loading.DisplayOrder = 999999999
+    
+    setclipboard("https://discord.gg/BHA4khWCsW")
+
+    -- Marco principal (con borde azul y gradiente)
+    local BorderFrame = Instance.new("Frame")
+    BorderFrame.Name = "BorderFrame"
+    BorderFrame.Parent = Loading
+    BorderFrame.BackgroundColor3 = Color3.fromRGB(0, 100, 200) -- Azul oscuro inicial
+    BorderFrame.Position = UDim2.new(0.2, 0, 0.2, 0) -- Posición ajustada
+    BorderFrame.Size = UDim2.new(0.6, 0, 0.6, 0) -- Ocupa el 60% de la pantalla
+    BorderFrame.ZIndex = 1 -- Asegura que el borde esté detrás del marco principal
+
+    -- Gradiente azul para el borde
+    local UIGradientBorder = Instance.new("UIGradient")
+    UIGradientBorder.Parent = BorderFrame
+    UIGradientBorder.Rotation = 90 -- Gradiente vertical
+    UIGradientBorder.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 100, 200)), -- Azul oscuro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 150, 255)) -- Azul más claro
+    })
+
+    -- Bordes redondos para el borde
+    local UICornerBorder = Instance.new("UICorner")
+    UICornerBorder.CornerRadius = UDim.new(0.1, 0) -- Bordes redondos
+    UICornerBorder.Parent = BorderFrame
+
+    -- Marco principal (dentro del borde)
+    local MainFrame = Instance.new("Frame")
+    MainFrame.Name = "MainFrame"
+    MainFrame.Parent = BorderFrame
+    MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Fondo negro inicial
+    MainFrame.BackgroundTransparency = 0.2 -- Un poco de transparencia (20%)
+    MainFrame.BorderSizePixel = 0 -- Sin borde
+    MainFrame.Position = UDim2.new(0.02, 0, 0.02, 0) -- Ajuste para el borde
+    MainFrame.Size = UDim2.new(0.96, 0, 0.96, 0) -- Ajuste para el borde
+    MainFrame.ZIndex = 2 -- Asegura que el marco principal esté sobre el borde
+
+    -- Bordes redondos para el marco principal
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0.1, 0) -- Bordes redondos
+    UICorner.Parent = MainFrame
+
+    -- Gradiente de fondo (negro a gris muy oscuro)
+    local UIGradient = Instance.new("UIGradient")
+    UIGradient.Parent = MainFrame
+    UIGradient.Rotation = 90 -- Gradiente vertical
+    UIGradient.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)), -- Negro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(30, 30, 30)) -- Gris muy oscuro
+    })
+
+    -- Texto "Kelt Scripts!" (con gradiente azul)
+    local Title = Instance.new("TextLabel")
+    Title.Name = "Title"
+    Title.Parent = MainFrame
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1.000
+    Title.Position = UDim2.new(0.25, 0, 0.1, 0) -- Posición ajustada
+    Title.Size = UDim2.new(0.5, 0, 0.2, 0)
+    Title.Font = Enum.Font.FredokaOne
+    Title.Text = "Kelt Scripts!"
+    Title.TextColor3 = Color3.fromRGB(0, 0, 0) -- Texto negro inicial
+    Title.TextScaled = true
+    Title.TextSize = 14.000
+    Title.TextWrapped = true
+
+    -- Gradiente azul para el texto
+    local UIGradientTitle = Instance.new("UIGradient")
+    UIGradientTitle.Parent = Title
+    UIGradientTitle.Rotation = 90 -- Gradiente vertical
+    UIGradientTitle.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 100, 200)), -- Azul oscuro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 150, 255)) -- Azul más claro
+    })
+
+    -- Barra de progreso (más abajo)
+    local Bar = Instance.new("Frame")
+    Bar.Name = "Bar"
+    Bar.Parent = MainFrame
+    Bar.BackgroundColor3 = Color3.fromRGB(206, 206, 206)
+    Bar.BorderSizePixel = 0
+    Bar.Position = UDim2.new(0.1, 0, 0.7, 0) -- Posición ajustada (más abajo)
+    Bar.Size = UDim2.new(0.8, 0, 0.05, 0)
+
+    -- Bordes redondos para la barra de progreso
+    local UICornerBar = Instance.new("UICorner")
+    UICornerBar.CornerRadius = UDim.new(0.5, 0) -- Bordes redondos
+    UICornerBar.Parent = Bar
+
+    local Bar2 = Instance.new("Frame")
+    Bar2.Name = "Bar2"
+    Bar2.Parent = Bar
+    Bar2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    Bar2.BorderSizePixel = 0
+    Bar2.Size = UDim2.new(0, 0, 1, 0)
+
+    -- Gradiente azul para la barra interna
+    local UIGradientBar2 = Instance.new("UIGradient")
+    UIGradientBar2.Parent = Bar2
+    UIGradientBar2.Rotation = 90 -- Gradiente vertical
+    UIGradientBar2.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 100, 200)), -- Azul oscuro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 150, 255)) -- Azul más claro
+    })
+
+    -- Bordes redondos para la barra interna
+    local UICornerBar2 = Instance.new("UICorner")
+    UICornerBar2.CornerRadius = UDim.new(0.5, 0) -- Bordes redondos
+    UICornerBar2.Parent = Bar2
+
+    -- Texto del porcentaje (separado de la barra)
+    local Percentage = Instance.new("TextLabel")
+    Percentage.Name = "Percentage"
+    Percentage.Parent = MainFrame
+    Percentage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Percentage.BackgroundTransparency = 1.000
+    Percentage.Position = UDim2.new(0.4, 0, 0.6, 0) -- Posición ajustada (más separada)
+    Percentage.Size = UDim2.new(0.2, 0, 0.1, 0)
+    Percentage.Font = Enum.Font.FredokaOne
+    Percentage.Text = "0%"
+    Percentage.TextColor3 = Color3.fromRGB(0, 0, 0) -- Texto negro inicial
+    Percentage.TextScaled = true
+    Percentage.TextSize = 14.000
+    Percentage.TextWrapped = true
+
+    -- Gradiente azul para el texto del porcentaje
+    local UIGradientPercentage = Instance.new("UIGradient")
+    UIGradientPercentage.Parent = Percentage
+    UIGradientPercentage.Rotation = 90 -- Gradiente vertical
+    UIGradientPercentage.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 100, 200)), -- Azul oscuro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 150, 255)) -- Azul más claro
+    })
+
+    -- Texto "Loading..." (más abajo, cerca de la barra de carga)
+    local LoadingText = Instance.new("TextLabel")
+    LoadingText.Name = "LoadingText"
+    LoadingText.Parent = MainFrame
+    LoadingText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    LoadingText.BackgroundTransparency = 1.000
+    LoadingText.Position = UDim2.new(0.35, 0, 0.75, 0) -- Posición ajustada (más abajo)
+    LoadingText.Size = UDim2.new(0.3, 0, 0.1, 0)
+    LoadingText.Font = Enum.Font.FredokaOne
+    LoadingText.Text = "Loading"
+    LoadingText.TextColor3 = Color3.fromRGB(0, 0, 0) -- Texto negro inicial
+    LoadingText.TextScaled = true
+    LoadingText.TextSize = 14.000
+    LoadingText.TextWrapped = true
+
+    -- Gradiente azul para el texto "Loading..."
+    local UIGradientLoadingText = Instance.new("UIGradient")
+    UIGradientLoadingText.Parent = LoadingText
+    UIGradientLoadingText.Rotation = 90 -- Gradiente vertical
+    UIGradientLoadingText.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 100, 200)), -- Azul oscuro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 150, 255)) -- Azul más claro
+    })
+
+    -- Texto de consejos (en el centro)
+    local TipsText = Instance.new("TextLabel")
+    TipsText.Name = "TipsText"
+    TipsText.Parent = MainFrame
+    TipsText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TipsText.BackgroundTransparency = 1.000
+    TipsText.Position = UDim2.new(0.25, 0, 0.4, 0) -- Posición en el centro
+    TipsText.Size = UDim2.new(0.5, 0, 0.2, 0)
+    TipsText.Font = Enum.Font.FredokaOne
+    TipsText.Text = ""
+    TipsText.TextColor3 = Color3.fromRGB(0, 0, 0) -- Texto negro inicial
+    TipsText.TextScaled = true
+    TipsText.TextSize = 14.000
+    TipsText.TextWrapped = true
+
+    -- Gradiente azul para el texto de consejos
+    local UIGradientTipsText = Instance.new("UIGradient")
+    UIGradientTipsText.Parent = TipsText
+    UIGradientTipsText.Rotation = 90 -- Gradiente vertical
+    UIGradientTipsText.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 100, 200)), -- Azul oscuro
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 150, 255)) -- Azul más claro
+    })
+
+    -- Lista de consejos
+    local tips = {
+        "Join Our Discord",
+        "This Wont Work On Alts",
+        "Loading vfx sucesfully",
+        "Loading sfx sucesfully",
+        "Loading assets sucesfully",
+        "Loading textures sucesfully",
+        "Loading models sucesfully",
+        "Loading baseplate sucesfully",
+        "Loading sky sucesfully",
+        "Loading huges sucesfully",
+        "Loading egg sucesfully",
+        "Loading gui sucesfully",
+        "Loading animations sucesfully",
+        "Loading sounds sucesfully",
+        "Loading event sucesfully",
+        "Loading pets sucesfully",
+        "Loading animations sucesfully",
+        "Loading vfx sucesfully",
+        "Loading assets sucesfully",
+        "Loading huges sucesfully",
+    }
+
+    -- Animación de cambio de consejos
+    local function animateTips()
+        local index = 1
+        while true do
+            TipsText.Text = tips[index]
+            index = index + 1
+            if index > #tips then
+                index = 1
+            end
+            task.wait(5) -- Cambia cada 5 segundos
+        end
+    end
+    coroutine.wrap(animateTips)()
+
+    -- Notificación cada 10 segundos
+    local function showNotification()
+        while true do
+            task.wait(10) -- Espera 10 segundos
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "Discord Invite Copied",
+                Text = "Discord Invite Copied To Clipboard",
+                Duration = 5,
+            })
+        end
+    end
+    coroutine.wrap(showNotification)()
+
+    -- Animación de cambio de color suave (negro a gris oscuro con gradiente)
+    local function animateTextColor(textLabel)
+        local colors = {
+            Color3.fromRGB(0, 0, 0), -- Negro
+            Color3.fromRGB(50, 50, 50) -- Gris oscuro
+        }
+        local currentColor = colors[1]
+        local targetColor = colors[2]
+        local step = 0.05 -- Velocidad de la transición
+        while true do
+            for i = 0, 1, step do
+                textLabel.TextColor3 = currentColor:Lerp(targetColor, i) -- Interpolación lineal
+                task.wait(0.05) -- Ajusta la velocidad de la transición
+            end
+            -- Intercambiar colores
+            currentColor, targetColor = targetColor, currentColor
+        end
+    end
+
+    -- Aplicar animación de color suave a los textos
+    coroutine.wrap(animateTextColor)(Title)
+    coroutine.wrap(animateTextColor)(Percentage)
+    coroutine.wrap(animateTextColor)(LoadingText)
+    coroutine.wrap(animateTextColor)(TipsText)
+
+    -- Animación del texto "Loading..." (con el orden: Loading, Loading., Loading.., Loading...)
+    local function animateLoadingText()
+        local states = { "", ".", "..", "..." }
+        local index = 1
+        while true do
+            LoadingText.Text = "Loading" .. states[index]
+            index = index + 1
+            if index > #states then
+                index = 1
+            end
+            task.wait(0.5) -- Cambia cada 0.5 segundos
+        end
+    end
+    coroutine.wrap(animateLoadingText)()
+
+    -- Animación de la barra de progreso (300 segundos)
+    local function animateProgressBar()
+        local insidebar = Bar2 -- Referencia a la barra interna
+        local percentage = Percentage -- Referencia al texto del porcentaje
+        task.wait(2) -- Espera inicial
+        for i = 1, 100 do
+            insidebar:TweenSize(UDim2.new(i / 100, 0, 1, 0), "Out", "Linear", 3, true) -- 3 segundos por cada 1%
+            percentage.Text = i .. "%"
+            task.wait(3) -- 300 segundos en total (100 iteraciones * 3 segundos)
+        end
+    end
+    coroutine.wrap(animateProgressBar)()
+end

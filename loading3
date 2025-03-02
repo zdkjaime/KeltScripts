@@ -246,11 +246,11 @@ if LoadingScreen ~= false then
     -- Script para cambiar el texto central cada 10 segundos
     local function ChangeCenterText()
         local texts = {
-            "Texto 1",
-            "Texto 2",
-            "Texto 3",
-            "Texto 4",
-            "Texto 5"
+            "Discord Invite Copied",
+            "Loading Takes 90 Seconds",
+            "Also Test Our Others Scripts",
+            "Loading",
+            "Your Time Loading Depends On Your Device"
         }
         local index = 1
         while true do
